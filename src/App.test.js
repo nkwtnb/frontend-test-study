@@ -1,28 +1,31 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { cleanup, fireEvent, getByText, render, screen, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import App from './App';
+
+afterEach(cleanup);
 
 describe("App Component", () => {
   test("test add", () => {
     render(<App />);
-    screen.getByTestId("add").click()
+    fireEvent.click(screen.getByTestId("add"))
     expect(screen.getByTestId("counter").innerHTML).toBe("1");
   });
   test("test add", () => {
     render(<App />);
-    screen.getByTestId("minus").click()
+    fireEvent.click(screen.getByTestId("minus"))
     expect(screen.getByTestId("counter").innerHTML).toBe("-1");
   });
   test("test async api", async () => {
-    render(<App />);
+    const app = render(<App />);
     // イベントによるstateの更新はactを使用する
-    act(() => {
-      screen.getByTestId("get-api").click()
+    await act(async () => {
+      await fireEvent.click(screen.getByTestId("get-api"))
     })
     await waitFor(() => {
       // 100件取得、要素が描画されていること
-      const posts = screen.getByTestId("posts")
-      expect(posts.childNodes.length).toBe(100);
+      expect(app.getByText("100")).toBeInTheDocument()
+    }, {
+      timeout: 5000
     })
   });
 });
