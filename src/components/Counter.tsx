@@ -5,7 +5,6 @@ export default () => {
 
   const handleClick = (type: "+" | "-") => {
     setCounter((pre: number) => {
-      console.log(pre);
       if (type === "+") {
         return pre = pre + 1;
       } else {
@@ -15,8 +14,9 @@ export default () => {
   }
 
   return (
-    <div>
+    <div style={{display: "inline-block"}}>
       <span data-testid="counter">{counter}</span>
+      {/* screen.getByTestId("hoge") でテスト時に対象エレメントを取得可能 */}
       <button data-testid="add" onClick={(() => handleClick("+"))}>＋</button>
       <button data-testid="minus" onClick={(() => handleClick("-"))}>ー</button>
     </div>

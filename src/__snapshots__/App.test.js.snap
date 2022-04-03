@@ -9,51 +9,45 @@ exports[`snapshot test block snapshot test 1`] = `
       class="App-header"
     >
       <div>
-        <span
-          data-testid="counter"
-        >
-          0
-        </span>
-        <button
-          data-testid="add"
-        >
-          ＋
-        </button>
-        <button
-          data-testid="minus"
-        >
-          ー
-        </button>
+        <div>
+          カウンター：
+          <div
+            style="display: inline-block;"
+          >
+            <span
+              data-testid="counter"
+            >
+              0
+            </span>
+            <button
+              data-testid="add"
+            >
+              ＋
+            </button>
+            <button
+              data-testid="minus"
+            >
+              ー
+            </button>
+          </div>
+        </div>
       </div>
-    </header>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`snapshot test snapshot test 1 1`] = `
-<DocumentFragment>
-  <div
-    class="App"
-  >
-    <header
-      class="App-header"
-    >
+      <div
+        style="height: 20px;"
+      />
       <div>
-        <span
-          data-testid="counter"
-        >
-          0
-        </span>
+        <div>
+          API：
+        </div>
         <button
-          data-testid="add"
+          data-testid="get-api"
         >
-          ＋
+          データ取得
         </button>
-        <button
-          data-testid="minus"
-        >
-          ー
-        </button>
+        <div
+          data-testid="posts"
+          id="posts"
+        />
       </div>
     </header>
   </div>
