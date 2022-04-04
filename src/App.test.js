@@ -3,14 +3,13 @@ import { act } from 'react-dom/test-utils';
 import App from './App';
 
 afterEach(cleanup);
-
 describe("App Component", () => {
   test("test add", () => {
     render(<App />);
     fireEvent.click(screen.getByTestId("add"))
     expect(screen.getByTestId("counter").innerHTML).toBe("1");
   });
-  test("test add", () => {
+  test("test minus", () => {
     render(<App />);
     fireEvent.click(screen.getByTestId("minus"))
     expect(screen.getByTestId("counter").innerHTML).toBe("-1");

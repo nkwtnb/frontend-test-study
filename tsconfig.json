@@ -14,14 +14,20 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "typeRoots": [
-      "types"
+      "types",
+      "./node_modules/@types",
     ]
   },
   "include": [
     "src",
-    "types/**/*"
+    "types/**/*",
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "typeAcquisition": {
+      "include": [
+          "jest"
+      ]
+  }
 }
